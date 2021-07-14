@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+th,td{
+    border: 1px solid black;
+}
+.table{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+html{
+    background-color: grey;
+}
+body{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p{
+    margin-bottom: 15px;
+}
+
+.texto{
+    position: relative;
+    width: 80%;
+}
+    #textarea{
+        width: 100%;
+        border: 1px solid rgb(189, 187, 187);
+        border-radius: 7px;
+        padding: 15px;
+    }
+    #contador{
+        width: 100px;
+        height: 30px;
+        border-radius: 15px;
+        background-color: rgb(77, 77, 255);
+        color: white;
+        border: none;
+        position: absolute;
+        right: -15px;
+        bottom: 20px;
+    }
+
+tr{
+    width: 100%;
+}
+table > theader > tr> th{
+    background-color: #d8d8d8;
+}
+th,td{
+    width: 150px;
+    border-radius: 7px;
+    padding-left: 15px;
+}
+table > tbody > tr:nth-child(2n){
+    background-color: #d8d8d8;
+}
+table > tbody > tr:nth-child(2n-1){
+    background-color: white;
+}
+
+
+
+.RespostaFlex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    .palavras{
+        margin-top: 20px;
+    }
+    .letras{
+        margin-top: 20px;
+    }
+
+@media screen and (min-width:800px){
+    .RespostaFlex{
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
