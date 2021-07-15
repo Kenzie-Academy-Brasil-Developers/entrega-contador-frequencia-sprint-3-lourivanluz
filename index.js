@@ -4,12 +4,15 @@ let botao = document.getElementById('contador')
 
 botao.addEventListener('click',function() {
     let texto = document.getElementById('textarea').value
+    document.querySelector('#letras').innerHTML = ''
+    document.querySelector('#palavras').innerHTML = ''
     texto = texto.toLowerCase()
     texto = texto.replace(/[^a-z'\s]+/g, "")
     let ArrayPalavras = texto.split(/\s/)
     let letras = {}
     let palavras = {}
     let contador = 0
+
 
     for(let i=0; i<texto.length;i++){
         let letra = texto[i]
@@ -35,7 +38,15 @@ botao.addEventListener('click',function() {
 
 
     let chavesLetras = Object.keys(letras).sort()
+    if (chavesLetras[0]===" "){
+        chavesLetras.shift()
+    }
+    
     let chavesPalavras = Object.keys(palavras).sort()
+    if (chavesPalavras[0]===" "){
+        chavesPalavras.shift()
+    }
+    
 
 
 
@@ -49,13 +60,13 @@ botao.addEventListener('click',function() {
     headerTableLetrasQuantidade.innerHTML = "Quantidade"
     let tbodyLetras = document.querySelector('.table1').appendChild(document.createElement('tbody'))
 
-    for(let row = 1; row <chavesLetras.length; row++){
+    for(let row = 1; row <=chavesLetras.length; row++){
         tbodyLetras.appendChild(document.createElement('tr'))
         for (let col = 1; col <= 2; col ++){
             if (col%2!==0){
-                document.querySelector('.table1 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML= '<strong>'+chavesLetras[row]+'</strong>' 
+                document.querySelector('.table1 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML= '<strong>'+chavesLetras[row-1]+'</strong>' 
             }else{
-                document.querySelector('.table1 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML=letras[chavesLetras[row]]
+                document.querySelector('.table1 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML=letras[chavesLetras[row-1]]
             }
         }
     }
@@ -69,15 +80,19 @@ botao.addEventListener('click',function() {
     headerTablePalavrasQuantidade.innerHTML = "Quantidade"
     let tbodyPalavras = document.querySelector('.table2').appendChild(document.createElement('tbody'))
 
-    for(let row = 1; row <chavesPalavras.length; row++){
+    for(let row = 1; row <=chavesPalavras.length; row++){
         tbodyPalavras.appendChild(document.createElement('tr'))
         for (let col = 1; col <= 2; col ++){
             if (col%2!==0){
-                document.querySelector('.table2 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML= '<strong>'+chavesPalavras[row]+'</strong>' 
+                document.querySelector('.table2 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML= '<strong>'+chavesPalavras[row-1]+'</strong>' 
             }else{
-                document.querySelector('.table2 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML=palavras[chavesPalavras[row]]
+                document.querySelector('.table2 > tbody > :last-child').appendChild(document.createElement('td')).innerHTML=palavras[chavesPalavras[row-1]]
             }
         }
     }
+
+    console.log(chavesLetras)
+    console.log(chavesPalavras)
+
 })
 
